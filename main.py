@@ -3,7 +3,7 @@ import requests
 import time
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
-from datetime import datetime
+# from datetime import datetime
 
 
 plt.style.use("seaborn")
@@ -58,7 +58,7 @@ y1 = []
 
 def animate(i):
 
-    x.append(datetime.now())
+    x.append(time.strftime("%d/%m/%Y\n%H:%M:%S"))
     price = get_price()
     print(price)
     y1.append(price)
@@ -69,9 +69,10 @@ def animate(i):
 
     plt.legend(loc="upper left")
 
-    plt.title("Realtime Bitcoin Price Plot")
-    plt.xlabel("Timestamp")
-    plt.ylabel("Price in '$'(USD)")
+    plt.title("Realtime Bitcoin Price Plot", fontdict={
+              'fontsize': 40}, fontweight='bold')
+    plt.xlabel("Timestamp", fontdict={'fontsize': 20})
+    plt.ylabel("Price in $ (USD)", fontdict={'fontsize': 20})
 
 
 ani = FuncAnimation(plt.gcf(), animate, interval=3000)
