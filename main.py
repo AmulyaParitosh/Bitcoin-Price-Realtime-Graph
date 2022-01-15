@@ -60,7 +60,6 @@ def animate(i):
 
     x.append(time.strftime("%d/%m/%Y\n%H:%M:%S"))
     price = get_price()
-    print(price)
     y1.append(price)
 
     plt.cla()
@@ -73,6 +72,8 @@ def animate(i):
               'fontsize': 40}, fontweight='bold')
     plt.xlabel("Timestamp", fontdict={'fontsize': 20})
     plt.ylabel("Price in $ (USD)", fontdict={'fontsize': 20})
+
+    print(price)
 
 
 ani = FuncAnimation(plt.gcf(), animate, interval=3000)
